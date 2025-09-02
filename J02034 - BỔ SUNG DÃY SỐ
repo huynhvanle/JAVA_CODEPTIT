@@ -1,0 +1,24 @@
+import java.util.*;
+public class JavaRunTest {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        Set<Integer> s1 = new TreeSet<>();
+        Set<Integer> s2 = new TreeSet<>();
+        int maxs = -1;
+        for(int i = 0; i < n; i++){
+            int x = sc.nextInt();
+            s1.add(x);
+            maxs = Math.max(maxs, x);
+        }
+        for(int i = 1; i <= maxs; i++){
+            s2.add(i);
+        }
+        s2.removeAll(s1);
+        if(s2.size() == 0)
+            System.out.print("Excellent!");
+        else
+            for(int x : s2)
+                System.out.println(x);
+    }
+}
