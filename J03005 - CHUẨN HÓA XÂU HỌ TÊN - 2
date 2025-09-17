@@ -1,0 +1,31 @@
+
+import java.util.*;
+
+public class tryJava {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int t = sc.nextInt();
+        sc.nextLine();
+        while (t-- > 0) {
+            String s = sc.nextLine();
+            s = s.toLowerCase();
+            StringBuilder sb = new StringBuilder();
+            String[] word = s.split(" ");
+            Vector<String> v = new Vector<>();
+            for (int i = 0; i < word.length; i++) {
+                if (word[i].length() > 0) {
+                    v.add(word[i].substring(0, 1).toUpperCase() + word[i].substring(1));
+                }
+            }
+            String fn = v.get(0).toUpperCase();
+            v.remove(0);
+            for (String x : v) {
+                sb.append(x + " ");     
+            }
+            sb.deleteCharAt(sb.length() - 1);
+            sb.append(", " + fn);
+            System.out.println(sb);
+        }
+    }
+}
