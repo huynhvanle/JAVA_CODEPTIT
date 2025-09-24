@@ -1,0 +1,29 @@
+
+import java.util.*;
+
+public class tryJava {
+    static Vector<String> rs = new Vector<>();
+    static void Find(int i ,String s, int n, int k, int st){
+        if(i > k){
+            rs.add(s);
+            return;
+        }
+        for(int j = st; j <= n - k + i; j++){
+            Find(i + 1, s + String.valueOf(j), n, k, j + 1);
+        }
+    }
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+//        int t = sc.nextInt();
+//        while (t-- > 0) {
+//        }
+        int n = sc.nextInt();
+        int k = sc.nextInt();
+        Find(1,"",n,k,1);
+        for(String x : rs){
+            System.out.print(x + " ");
+        }
+        System.out.println();
+        System.out.println("Tong cong co " + rs.size() +" to hop");
+    }
+}
