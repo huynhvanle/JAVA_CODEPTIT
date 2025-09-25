@@ -1,0 +1,64 @@
+
+package rectangle;
+import java.util.*;
+
+class Rectangles {
+    private double width;
+    private double height;
+    private String color;
+    public Rectangles(){
+        width = 1;
+        height = 1;
+    }
+    public Rectangles(double width, double height, String color){
+        this.width = width;
+        this.height = height;
+        this.color = color;
+    }
+    public double getWidth(){
+        return width;
+    }
+    public double getHeight(){
+        return height;
+    }
+    public String getColor(){
+        return color;
+    }
+    public void setWidth(double width){
+        this.width = width;
+    }
+    public void setHeight(double height){
+        this.height = height;
+    }
+    public void setColor(String color){
+        this.color = color;
+    }
+    public double findArea(){
+        return width * height;
+    }
+    public double findPerimeter(){
+        return (width + height) * 2;
+    }
+    public boolean check(){
+        if(width <= 0 || height <= 0) return false;
+        return true;
+    }
+    public String exactlycl(){
+        return color.substring(0,1).toUpperCase() + color.substring(1,color.length()).toLowerCase();
+    }
+    @Override
+    public String toString(){
+        return (int)findPerimeter() +  " " + (int)findArea() + " " + exactlycl();
+    }
+}
+public class Rectangle{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Rectangles r = new Rectangles(sc.nextDouble(),sc.nextDouble(),sc.next());
+        if(r.check()){
+            System.out.println(r.toString());
+        }else{
+            System.out.println("INVALID");
+        }
+    }
+}
