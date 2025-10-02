@@ -1,0 +1,24 @@
+import java.util.*;
+class pso {
+    private long tu;
+    private long mau;
+    public pso(long tu, long mau){
+        this.tu = tu;
+        this.mau = mau;
+    }
+    public long Gcd(long a, long b){
+        if(b == (long)0) return a;
+        return Gcd(b, a % b);
+    }
+    @Override
+    public String toString(){
+        return (tu / Gcd(tu,mau)) + "/" + (mau / Gcd(tu, mau));
+    }
+}
+public class phanSo{
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        pso x = new pso(sc.nextLong(), sc.nextLong());
+        System.out.println(x.toString());
+    }
+}
