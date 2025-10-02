@@ -1,0 +1,29 @@
+package iofile;
+import java.util.*;
+import java.io.*;
+
+public class IOfile {
+    
+    public static void main(String[] args) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("DATA.in"));
+            String line = br.readLine();
+            Map<Integer, Integer> mp = new TreeMap<>();
+            while(true){
+                String []word = line.split(" ");
+                for(String x : word){
+                    int a = Integer.parseInt(x);
+                    mp.put(a, mp.getOrDefault(a, 0) + 1);
+                }
+                line = br.readLine();
+                if(line == null) break;
+            }
+            for(int x : mp.keySet()){
+                System.out.println(x + " " + mp.get(x));
+            }
+            br.close();
+        } catch (Exception e) {
+        }
+    }
+
+}
