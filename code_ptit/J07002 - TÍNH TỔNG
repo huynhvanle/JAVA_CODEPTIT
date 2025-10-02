@@ -1,0 +1,36 @@
+package iofile;
+
+import java.io.*;
+
+public class IOfile {
+    public static boolean check(String s){
+        if(s.isEmpty() || s.length() > 9) return false;
+        for(int i = 0; i < s.length(); i++){
+            if(!Character.isDigit(s.charAt(i))){
+                return false;
+            }
+        }
+        return true;
+    }
+    public static void main(String[] args) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("DATA.in"));
+            String line = br.readLine();
+            long sum = 0;
+            while(true){
+                String []word = line.split(" ");
+                for(String s : word){
+                    if(check(s)){
+                        sum += Integer.parseInt(s);
+                    }
+                }
+                line = br.readLine();
+                if(line == null) break;
+            }
+            System.out.println(sum);
+            br.close();
+        } catch (Exception e) {
+        }
+    }
+
+}
