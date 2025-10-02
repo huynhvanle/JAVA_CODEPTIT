@@ -1,0 +1,33 @@
+package iofile;
+import java.util.*;
+import java.io.*;
+
+
+public class IOfile {
+    static String change(String s){
+        s = s.trim();
+        s = s.toLowerCase();
+        String []w = s.split("\\s+");
+        for(int i = 0; i < w.length; i++){
+            w[i] = w[i].substring(0,1).toUpperCase() + w[i].substring(1);
+        }
+        s = "";
+        for(String x : w) s += (" " + x);
+        return s;
+    }
+    public static void main(String[] args) {
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("DATA.in"));
+            String line = br.readLine();
+            while(true){
+                System.out.println(change(line));
+                line = br.readLine();
+                if(line.equals("END"))
+                    break;
+            }
+            br.close();
+        } catch (Exception e) {
+        }
+    }
+
+}
